@@ -19,11 +19,13 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "make:migrations": "ts-node -P tsconfig.json ./node_modules/typeorm/cli.js migration:generate -n",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "make:migrations": "ts-node -P tsconfig.json ./node_modules/typeorm/cli.js migration:generate -- -n",
     "make:migrate": "ts-node -P tsconfig.json ./node_modules/typeorm/cli.js migration:run",
     "make:rollback": "ts-node -P tsconfig.json ./node_modules/typeorm/cli.js migration:revert"
   },
   "dependencies": {
+    "@nestjs/apollo": "^10.0.14",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/graphql": "^10.0.15",

@@ -1,13 +1,13 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User extends BaseEntity {
+export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number;
-  @Column({ nullable: false })
-  firstName: string;
-  @Column({ nullable: false })
-  lastName: string;
+  id!: number;
+
+  @Column('varchar', { length: 30 })
+  title!: string;
+
   @Column()
-  age: number | null;
+  price!: number;
 }
