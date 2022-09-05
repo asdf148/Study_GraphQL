@@ -18,7 +18,7 @@ import { Product } from 'src/product/entity/product.entity';
       username: 'graph',
       password: 'graph',
       database: 'graphql_test',
-      synchronize: true,
+      synchronize: false,
       logging: false,
       entities: [User, Product],
     }),

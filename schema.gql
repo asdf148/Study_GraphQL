@@ -2,21 +2,59 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type UserEntity {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  age: Int
+}
+
 type ProductDto {
   id: Float!
   title: String!
   price: Int!
+  user: UserEntity!
+}
+
+type ProductEntity {
+  id: Int!
+  title: String!
+  price: Int!
+}
+
+type UserDto {
+  id: Float!
+  firstName: String!
+  lastName: String!
+  age: Int
+  products: [ProductEntity!]!
 }
 
 type Query {
   getProducts: [ProductDto!]!
+  getUsers: [UserDto!]!
 }
 
 type Mutation {
   createProduct(data: InputProduct!): ProductDto!
+  addUser(data: InputJoin!): UserDto!
 }
 
 input InputProduct {
   title: String!
   price: Int!
+  user: UserInputEntity!
+}
+
+input UserInputEntity {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  age: Int
+}
+
+input InputJoin {
+  firstName: String!
+  lastName: String!
+  age: Int
 }
